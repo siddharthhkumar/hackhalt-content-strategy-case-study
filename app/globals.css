@@ -1,0 +1,100 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: var(--font-fraunces), "Iowan Old Style", serif;
+  --font-sans: var(--font-inter), system-ui, sans-serif;
+  --font-mono: var(--font-mono-plex), "SFMono-Regular", monospace;
+
+  --color-paper: #f7f4ee;
+  --color-paper-raised: #fbf9f4;
+  --color-ink: #15171a;
+  --color-ink-soft: #565b53;
+  --color-ink-faint: #8b8f86;
+  --color-line: rgba(21, 23, 26, 0.13);
+  --color-line-soft: rgba(21, 23, 26, 0.07);
+  --color-signal: #0e6b52;
+  --color-signal-ink: #0a4c3a;
+  --color-signal-soft: rgba(14, 107, 82, 0.09);
+  --color-signal-line: rgba(14, 107, 82, 0.32);
+}
+
+:root {
+  --max: 1240px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+body {
+  margin: 0;
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: inherit;
+}
+
+::selection {
+  background: var(--color-signal);
+  color: var(--color-paper);
+}
+
+.wrap {
+  width: min(var(--max), 100% - 2.5rem);
+  margin-inline: auto;
+}
+
+@media (min-width: 900px) {
+  .wrap {
+    width: min(var(--max), 100% - 6rem);
+  }
+}
+
+.section-rule {
+  border-top: 1px solid var(--color-line);
+}
+
+.num-anchor {
+  font-family: var(--font-mono);
+  letter-spacing: -0.02em;
+  color: var(--color-ink);
+  opacity: 0.09;
+}
+
+.grain-grid {
+  background-image: linear-gradient(var(--color-line-soft) 1px, transparent 1px),
+    linear-gradient(90deg, var(--color-line-soft) 1px, transparent 1px);
+  background-size: 64px 64px;
+}
+
+.focus-ring {
+  outline: none;
+}
+.focus-ring:focus-visible {
+  outline: 2px solid var(--color-signal);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
