@@ -4,6 +4,7 @@ import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { SectionShell } from "./SectionShell";
 import { Reveal } from "./Reveal";
+import { SpotlightCard } from "./SpotlightCard";
 import { foundations } from "@/lib/data";
 
 export function ContextSection() {
@@ -14,8 +15,8 @@ export function ContextSection() {
       id="context"
       number="01"
       eyebrow="Context"
-      title="First, understand what we are doing."
-      lead="HackHalt already has strong content ingredients. The question isn't whether the raw material exists — it's whether it's being turned into a system that attracts, teaches and earns trust."
+      title="Asset Inventory: What HackHalt Already Has."
+      lead="Every audit starts by cataloguing what's already deployed. HackHalt isn't short on assets — cybersecurity education, mentorship, real project work. The open question is whether they're configured to attract an audience, or only to serve one that already arrived."
     >
       <div className="grid gap-8 lg:grid-cols-[1.3fr_1fr]">
         <ul className="grid gap-px overflow-hidden border border-line bg-line sm:grid-cols-2">
@@ -23,6 +24,7 @@ export function ContextSection() {
             const isOpen = open === i;
             return (
               <li key={item.title} className="bg-paper">
+                <SpotlightCard className="h-full">
                 <button
                   type="button"
                   onClick={() => setOpen(i)}
@@ -70,6 +72,7 @@ export function ContextSection() {
                     )}
                   </AnimatePresence>
                 </button>
+                </SpotlightCard>
               </li>
             );
           })}

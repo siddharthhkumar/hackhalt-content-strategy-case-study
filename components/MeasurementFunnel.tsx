@@ -17,8 +17,8 @@ export function MeasurementFunnel() {
       id="measurement"
       number="06"
       eyebrow="Measurement"
-      title="Don't optimise for attention alone."
-      lead="Reach without qualified interest is a vanity signal. Each layer below should progressively narrow toward outcomes that matter to the business."
+      title="Signal Over Noise: What Actually Gets Logged."
+      lead="An alert nobody investigates isn't a success metric — it's noise. The same logic applies here: each layer below should narrow toward outcomes the business can actually act on."
       tag="Measurement framework"
     >
       <div className="mx-auto flex max-w-xl flex-col items-center gap-2">
@@ -65,10 +65,7 @@ export function MeasurementFunnel() {
           <EvidenceTag kind="measurement">Metrics — {current.name}</EvidenceTag>
           <div className="flex flex-wrap justify-center gap-2">
             {current.metrics.map((m) => (
-              <span
-                key={m}
-                className="rounded-full border border-line bg-paper px-3.5 py-1.5 text-sm text-ink-soft"
-              >
+              <span key={m} className="tag border-line bg-paper text-ink-soft">
                 {m}
               </span>
             ))}

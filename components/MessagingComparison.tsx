@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Reveal } from "./Reveal";
+import { FlowchartRow } from "./FlowchartRow";
 import { messagingComparison, messagingTarget, newJourney } from "@/lib/data";
 
 function MessageColumn({
@@ -115,25 +116,13 @@ export function MessagingComparison() {
             The new audience journey
           </p>
         </Reveal>
-        <div className="mt-6 flex flex-wrap items-center gap-x-2 gap-y-4">
-          {newJourney.map((step, i) => (
-            <Reveal key={step} delay={i * 0.05} y={10} className="flex items-center gap-2">
-              <span
-                className={`rounded-full border px-3.5 py-2 font-mono text-xs tracking-[0.06em] uppercase ${
-                  i === newJourney.length - 1
-                    ? "border-signal-line bg-signal-soft text-signal-ink"
-                    : "border-line text-ink-soft"
-                }`}
-              >
-                {step}
-              </span>
-              {i !== newJourney.length - 1 ? (
-                <span aria-hidden className="text-ink-faint">
-                  &rarr;
-                </span>
-              ) : null}
-            </Reveal>
-          ))}
+        <div className="mt-6">
+          <FlowchartRow
+            steps={newJourney.map((step, i) => ({
+              label: step,
+              emphasis: i === newJourney.length - 1,
+            }))}
+          />
         </div>
       </div>
     </div>

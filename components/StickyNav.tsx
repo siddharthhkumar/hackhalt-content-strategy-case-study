@@ -32,26 +32,27 @@ export function StickyNav() {
       <div className="wrap flex h-16 items-center justify-between md:h-[4.5rem]">
         <a
           href="#top"
-          className="focus-ring font-display text-lg tracking-tight text-ink"
+          className="focus-ring flex items-baseline font-display text-lg tracking-tight text-ink"
         >
-          HackHalt{" "}
-          <span className="font-mono text-xs align-middle text-ink-faint">
-            / case study
+          HackHalt
+          <span className="ml-1.5 font-mono text-xs align-middle text-ink-faint">
+            /audit
           </span>
         </a>
 
         <nav
           aria-label="Section navigation"
-          className="hidden items-center gap-1 lg:flex"
+          className="hidden items-center gap-4 lg:flex"
         >
           {navItems.map((item) => (
             <a
               key={item.id}
               href={`#${item.id}`}
-              className={`focus-ring rounded-full px-3 py-1.5 font-mono text-[11px] tracking-[0.08em] uppercase transition-colors ${
+              aria-current={active === item.id ? "true" : undefined}
+              className={`focus-ring border-b-2 py-1.5 font-mono text-[11px] tracking-[0.08em] uppercase transition-colors ${
                 active === item.id
-                  ? "bg-ink text-paper"
-                  : "text-ink-soft hover:text-ink"
+                  ? "border-signal text-ink"
+                  : "border-transparent text-ink-soft hover:border-line hover:text-ink"
               }`}
             >
               {item.number} {item.label}

@@ -13,9 +13,7 @@ export function EvidenceTag({
   children: React.ReactNode;
 }) {
   return (
-    <span
-      className={`inline-flex items-center rounded-full border px-2.5 py-1 font-mono text-[10px] tracking-[0.12em] uppercase ${styles[kind]}`}
-    >
+    <span className={`tag uppercase tracking-[0.1em] ${styles[kind]}`}>
       {children}
     </span>
   );

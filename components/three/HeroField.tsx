@@ -7,7 +7,7 @@ import * as THREE from "three";
 const COLS = 7;
 const ROWS = 6;
 const COUNT = COLS * ROWS;
-const SIGNAL_RATIO = 0.16;
+const SIGNAL_RATIO = 0.22;
 
 function Field({ reduceMotion }: { reduceMotion: boolean }) {
   const group = useRef<THREE.Group>(null);
@@ -75,7 +75,7 @@ function Field({ reduceMotion }: { reduceMotion: boolean }) {
   }, []);
 
   const lineMaterial = useMemo(
-    () => new THREE.LineBasicMaterial({ color: "#15171a", transparent: true, opacity: 0 }),
+    () => new THREE.LineBasicMaterial({ color: "#00f0ff", transparent: true, opacity: 0 }),
     []
   );
 
@@ -93,7 +93,7 @@ function Field({ reduceMotion }: { reduceMotion: boolean }) {
 
     lineMaterial.opacity = THREE.MathUtils.lerp(
       lineMaterial.opacity,
-      eased > 0.7 ? 0.14 : 0,
+      eased > 0.7 ? 0.3 : 0,
       0.05
     );
 
@@ -117,11 +117,11 @@ function Field({ reduceMotion }: { reduceMotion: boolean }) {
       <lineSegments geometry={lineGeometry} material={lineMaterial} />
       {target.map((_, i) => (
         <mesh key={i} ref={(el) => { meshRefs.current[i] = el; }}>
-          <sphereGeometry args={[isSignal[i] ? 0.052 : 0.034, 12, 12]} />
+          <sphereGeometry args={[isSignal[i] ? 0.06 : 0.034, 12, 12]} />
           <meshBasicMaterial
-            color={isSignal[i] ? "#0e6b52" : "#15171a"}
+            color={isSignal[i] ? "#ff2ea6" : "#00f0ff"}
             transparent
-            opacity={isSignal[i] ? 0.9 : 0.32}
+            opacity={isSignal[i] ? 1 : 0.55}
           />
         </mesh>
       ))}

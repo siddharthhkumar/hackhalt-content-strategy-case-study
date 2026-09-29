@@ -53,7 +53,7 @@ function Ring({
   return (
     <group ref={groupRef} rotation={[0.32, 0, 0]}>
       <lineSegments geometry={lineGeometry}>
-        <lineBasicMaterial color="#15171a" transparent opacity={0.16} />
+        <lineBasicMaterial color="#00f0ff" transparent opacity={0.35} />
       </lineSegments>
 
       {positions.map((pos, i) => {
@@ -62,21 +62,21 @@ function Ring({
         return (
           <group key={stage.name} position={pos}>
             <mesh onClick={() => onSelect(i)}>
-              <sphereGeometry args={[isActive ? 0.15 : 0.09, 20, 20]} />
-              <meshBasicMaterial color={isActive ? "#0e6b52" : "#15171a"} />
+              <sphereGeometry args={[isActive ? 0.16 : 0.09, 20, 20]} />
+              <meshBasicMaterial color={isActive ? "#ff2ea6" : "#00c4d6"} />
             </mesh>
             <Html center distanceFactor={7.5} style={{ pointerEvents: "auto" }}>
               <button
                 type="button"
                 onClick={() => onSelect(i)}
                 aria-pressed={isActive}
-                className={`focus-ring flex items-center gap-1.5 rounded-full border px-3 py-1.5 font-mono text-[10px] tracking-[0.08em] whitespace-nowrap uppercase backdrop-blur-sm transition-colors ${
+                className={`focus-ring tag uppercase backdrop-blur-sm transition-colors ${
                   isActive
-                    ? "border-signal bg-signal text-paper"
-                    : "border-line bg-paper/90 text-ink hover:border-ink"
+                    ? "border-accent2 bg-accent2 text-void"
+                    : "border-signal-line bg-paper/85 text-ink hover:border-signal"
                 }`}
               >
-                <span className={isActive ? "text-paper/60" : "text-ink-faint"}>
+                <span className={isActive ? "text-void/60" : "text-ink-faint"}>
                   {stage.number}
                 </span>
                 {stage.name}

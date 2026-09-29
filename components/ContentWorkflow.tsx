@@ -61,10 +61,7 @@ export function ContentWorkflow() {
             <h3 className="mt-2 font-display text-2xl text-ink">{current.step}</h3>
             <ul className="mt-4 flex flex-wrap gap-2">
               {current.detail.map((d) => (
-                <li
-                  key={d}
-                  className="rounded-full border border-line bg-paper px-3 py-1.5 text-sm text-ink-soft"
-                >
+                <li key={d} className="tag border-line bg-paper text-ink-soft">
                   {d}
                 </li>
               ))}

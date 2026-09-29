@@ -19,13 +19,13 @@ export function GrowthLoop() {
       id="growth-loop"
       number="07"
       eyebrow="Growth Loop"
-      title="The complete operating model."
-      lead="Eight stages, closing on themselves. Optimise feeds directly back into Understand — the review never treats the ecosystem as finished."
+      title="The Continuous Monitoring Loop."
+      lead="Eight stages, closing on themselves. Optimise feeds straight back into Understand — because a review, like a monitoring system, is never actually finished. It's continuous."
       tag="Proposed framework"
     >
       <div className="grid gap-12 lg:grid-cols-[1fr_1fr] lg:items-center lg:gap-6">
         <div className="hidden lg:block">
-          <div className="aspect-square w-full max-w-[440px] border border-line bg-paper-raised">
+          <div className="glow-box hud-corners aspect-square w-full max-w-[440px] border border-line bg-paper-raised">
             <GrowthRing active={active} onSelect={setActive} reduceMotion={Boolean(reduce)} />
           </div>
           <p className="mt-3 text-center font-mono text-[10px] tracking-[0.1em] text-ink-faint uppercase">
@@ -56,12 +56,12 @@ export function GrowthLoop() {
                 <span
                   className={`flex h-16 w-16 flex-col items-center justify-center rounded-full border text-center transition-colors md:h-20 md:w-20 ${
                     isActive
-                      ? "border-signal bg-signal text-paper"
-                      : "border-line bg-paper text-ink hover:border-ink"
+                      ? "border-accent2 bg-accent2 text-void glow-box"
+                      : "border-signal-line bg-paper text-ink hover:border-signal"
                   }`}
                 >
                   <span
-                    className={`font-mono text-[9px] ${isActive ? "text-paper/70" : "text-ink-faint"}`}
+                    className={`font-mono text-[9px] ${isActive ? "text-void/70" : "text-ink-faint"}`}
                   >
                     {stage.number}
                   </span>

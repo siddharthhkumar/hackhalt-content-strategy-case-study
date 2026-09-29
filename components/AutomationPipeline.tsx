@@ -2,6 +2,8 @@
 
 import { SectionShell } from "./SectionShell";
 import { Reveal } from "./Reveal";
+import { SpotlightCard } from "./SpotlightCard";
+import { FlowchartRow } from "./FlowchartRow";
 import { automationPipeline, automationEngine, automationHuman } from "@/lib/data";
 
 const humanSteps = new Set(["Human Strategy", "Human Approval", "Human Analysis"]);
@@ -12,39 +14,20 @@ export function AutomationPipeline() {
       id="automation"
       number="05"
       eyebrow="Automation"
-      title="Automate the repetitive work. Keep the judgement human."
-      lead="An automation layer removes operational drag from research, drafting and reporting — while every strategic decision still passes through a person."
+      title="Automate the Noise. Escalate the Judgement Calls."
+      lead="Run it the way a SOC runs triage: automation absorbs the repetitive load — research, drafting, reporting. What it never absorbs is judgement. Strategy, accuracy, tone and the final call to publish stay escalated to a person."
       tag="Proposed system"
     >
-      <Reveal>
-        <div className="flex flex-wrap items-center gap-x-1 gap-y-3">
-          {automationPipeline.map((step, i, arr) => {
-            const isHuman = humanSteps.has(step);
-            return (
-              <span key={step} className="flex items-center gap-1">
-                <span
-                  className={`rounded-full border px-3 py-1.5 font-mono text-[11px] tracking-[0.04em] uppercase ${
-                    isHuman
-                      ? "border-signal-line bg-signal-soft text-signal-ink"
-                      : "border-line text-ink-soft"
-                  }`}
-                >
-                  {step}
-                </span>
-                {i !== arr.length - 1 ? (
-                  <span aria-hidden className="text-ink-faint">
-                    &rarr;
-                  </span>
-                ) : null}
-              </span>
-            );
-          })}
-        </div>
-      </Reveal>
+      <FlowchartRow
+        steps={automationPipeline.map((step) => ({
+          label: step,
+          emphasis: humanSteps.has(step),
+        }))}
+      />
 
       <div className="mt-14 grid gap-4 md:grid-cols-2">
         <Reveal delay={0.05}>
-          <div className="h-full border border-line bg-paper-raised p-7 md:p-8">
+          <SpotlightCard className="h-full border border-line bg-paper-raised p-7 md:p-8">
             <p className="font-mono text-[10px] tracking-[0.14em] text-ink-faint uppercase">
               System engine — automated
             </p>
@@ -56,11 +39,11 @@ export function AutomationPipeline() {
                 </li>
               ))}
             </ul>
-          </div>
+          </SpotlightCard>
         </Reveal>
 
         <Reveal delay={0.1}>
-          <div className="h-full border border-signal-line bg-signal-soft p-7 md:p-8">
+          <SpotlightCard className="h-full border border-signal-line bg-signal-soft p-7 md:p-8">
             <p className="font-mono text-[10px] tracking-[0.14em] text-signal-ink uppercase">
               Human control — strategic
             </p>
@@ -72,7 +55,7 @@ export function AutomationPipeline() {
                 </li>
               ))}
             </ul>
-          </div>
+          </SpotlightCard>
         </Reveal>
       </div>
 

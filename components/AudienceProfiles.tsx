@@ -45,7 +45,7 @@ export function AudienceProfiles() {
             {person.path.map((step, i, arr) => (
               <span key={step} className="flex items-center gap-2">
                 <span
-                  className={`rounded-full border px-4 py-2 font-mono text-xs tracking-[0.08em] uppercase ${
+                  className={`tag uppercase tracking-[0.08em] ${
                     active === "b"
                       ? "border-signal-line bg-signal-soft text-signal-ink"
                       : "border-line text-ink-soft"

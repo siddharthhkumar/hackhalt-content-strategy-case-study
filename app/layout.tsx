@@ -1,30 +1,34 @@
 import type { Metadata } from "next";
-import { Fraunces, Inter, IBM_Plex_Mono } from "next/font/google";
+import { Orbitron, Rajdhani, Share_Tech_Mono } from "next/font/google";
 import "./globals.css";
+import { SmoothScroll } from "@/components/SmoothScroll";
+import { CustomCursor } from "@/components/CustomCursor";
+import { MatrixBackground } from "@/components/MatrixBackground";
 
-const fraunces = Fraunces({
+const orbitron = Orbitron({
   subsets: ["latin"],
-  variable: "--font-fraunces",
+  variable: "--font-cyber-display",
   display: "swap",
 });
 
-const inter = Inter({
+const rajdhani = Rajdhani({
   subsets: ["latin"],
-  variable: "--font-inter",
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-cyber-body",
   display: "swap",
 });
 
-const plexMono = IBM_Plex_Mono({
+const shareTechMono = Share_Tech_Mono({
   subsets: ["latin"],
-  weight: ["400", "500"],
-  variable: "--font-mono-plex",
+  weight: "400",
+  variable: "--font-cyber-mono",
   display: "swap",
 });
 
 const siteUrl = "https://hackhalt-content-intelligence.vercel.app";
-const title = "From Posting Content to Building a Content System | HackHalt Case Study";
+const title = "HackHalt's Biggest Vulnerability Isn't Technical | Content Security Audit";
 const description =
-  "A strategic review of HackHalt Academy's social media ecosystem — diagnosing the discovery gap and designing a repeatable cybersecurity content, workflow and measurement system.";
+  "A structured content security audit of HackHalt Academy's social media ecosystem — scoping the exposure, tracing the discovery gap to its root cause, and designing a repeatable content, workflow and measurement system to close it.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -61,7 +65,7 @@ export const metadata: Metadata = {
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Article",
-  headline: "From Posting Content to Building a Content System",
+  headline: "HackHalt's Biggest Vulnerability Isn't Technical. It's Discoverability.",
   description,
   about: {
     "@type": "Organization",
@@ -86,12 +90,18 @@ const jsonLd = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${fraunces.variable} ${inter.variable} ${plexMono.variable}`}>
+    <html
+      lang="en"
+      className={`${orbitron.variable} ${rajdhani.variable} ${shareTechMono.variable}`}
+    >
       <body>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
+        <SmoothScroll />
+        <CustomCursor />
+        <MatrixBackground />
         {children}
       </body>
     </html>

@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import { Reveal } from "./Reveal";
+import { SplitReveal } from "./SplitReveal";
 
 export function SectionShell({
   id,
@@ -13,7 +14,7 @@ export function SectionShell({
   id: string;
   number: string;
   eyebrow: string;
-  title: ReactNode;
+  title: string;
   lead?: ReactNode;
   tag?: string;
   children?: ReactNode;
@@ -34,18 +35,14 @@ export function SectionShell({
               <span className="font-mono md:hidden">{number}</span>
               <span>{eyebrow}</span>
               {tag ? (
-                <span className="rounded-full border border-line px-2 py-0.5 text-[10px] tracking-[0.14em] text-ink-soft">
-                  {tag}
-                </span>
+                <span className="tag border-line py-1 text-ink-soft">{tag}</span>
               ) : null}
             </div>
           </Reveal>
 
-          <Reveal delay={0.05}>
-            <h2 className="mt-4 max-w-3xl font-display text-4xl leading-[1.05] tracking-tight text-ink md:text-5xl lg:text-6xl">
-              {title}
-            </h2>
-          </Reveal>
+          <h2 className="mt-4 max-w-3xl font-display text-4xl leading-[1.06] font-light tracking-tight text-ink md:text-5xl lg:text-6xl">
+            <SplitReveal lines={[{ text: title }]} />
+          </h2>
 
           {lead ? (
             <Reveal delay={0.1}>

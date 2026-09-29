@@ -8,8 +8,8 @@ export function WorkflowSection() {
       id="workflow"
       number="04"
       eyebrow="Content Workflow"
-      title="Good strategy needs an operating system."
-      lead="A repeatable, closed-loop process — from finding a topic to learning from what shipped."
+      title="The Playbook Behind the System."
+      lead="A documented, repeatable procedure — the kind any operator on the team could run without waiting on one person's judgement call. Find, filter, plan, create, review, publish, measure, learn. Then repeat."
       tag="Proposed workflow"
     >
       <ContentWorkflow />
