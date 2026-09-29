@@ -13,13 +13,13 @@ export function FinalShift() {
 
         <Reveal delay={0.05}>
           <div className="mt-8 grid items-center gap-6 md:grid-cols-[1fr_auto_1fr]">
-            <p className="font-display text-3xl leading-[1.1] font-light tracking-tight text-ink/35 md:text-4xl">
+            <p className="font-display text-3xl leading-[1.1] font-bold tracking-wide text-ink/35 md:text-4xl">
               &ldquo;Posting Content&rdquo;
             </p>
             <span aria-hidden className="glow-text justify-self-start font-mono text-signal md:justify-self-center">
               &rarr;
             </span>
-            <p className="glow-text font-display text-3xl leading-[1.1] font-light tracking-tight text-ink md:text-4xl">
+            <p className="glow-text font-display text-3xl leading-[1.1] font-bold tracking-wide text-ink md:text-4xl">
               &ldquo;Building a Content System&rdquo;
             </p>
           </div>
@@ -30,7 +30,9 @@ export function FinalShift() {
             {finalShifts.map((shift) => (
               <div key={shift.from} className="bg-void px-6 py-7">
                 <p className="font-mono text-xs text-ink-faint line-through">{shift.from}</p>
-                <p className="mt-2 font-display text-lg text-ink">{shift.to}</p>
+                <p className="mt-2 font-display text-lg font-semibold tracking-wide text-ink">
+                  {shift.to}
+                </p>
               </div>
             ))}
           </div>

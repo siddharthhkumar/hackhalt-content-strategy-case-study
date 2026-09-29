@@ -32,7 +32,7 @@ export function ContentWorkflow() {
                 >
                   {String(i + 1).padStart(2, "0")}
                 </span>
-                <span className="font-display text-lg">{item.step}</span>
+                <span className="font-display text-lg font-bold tracking-wide">{item.step}</span>
               </button>
             );
           })}
@@ -58,7 +58,9 @@ export function ContentWorkflow() {
             <p className="font-mono text-[10px] tracking-[0.14em] text-signal uppercase">
               Step {String(active + 1).padStart(2, "0")}
             </p>
-            <h3 className="mt-2 font-display text-2xl text-ink">{current.step}</h3>
+            <h3 className="mt-2 font-display text-2xl font-bold tracking-wide text-ink">
+              {current.step}
+            </h3>
             <ul className="mt-4 flex flex-wrap gap-2">
               {current.detail.map((d) => (
                 <li key={d} className="tag border-line bg-paper text-ink-soft">

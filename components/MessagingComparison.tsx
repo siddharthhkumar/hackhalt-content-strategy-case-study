@@ -47,7 +47,9 @@ function MessageColumn({
                 onClick={() => onHover(isActive ? null : key)}
                 className="focus-ring block w-full border-t border-line/70 py-4 text-left first:border-t-0"
               >
-                <span className="font-display text-lg text-ink italic">&ldquo;{item.quote}&rdquo;</span>
+                <span className="font-display text-lg font-semibold tracking-wide text-ink">
+                  &ldquo;{item.quote}&rdquo;
+                </span>
                 <AnimatePresence initial={false}>
                   {isActive && (
                     <motion.span
@@ -83,7 +85,7 @@ export function MessagingComparison() {
     <div className="space-y-16">
       <div>
         <Reveal>
-          <p className="font-display text-2xl leading-snug text-ink md:text-3xl">
+          <p className="font-display text-2xl leading-snug font-bold tracking-wide text-ink md:text-3xl">
             The bigger question is where the content enters the audience journey.
           </p>
         </Reveal>

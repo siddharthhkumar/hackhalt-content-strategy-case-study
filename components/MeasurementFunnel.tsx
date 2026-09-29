@@ -45,7 +45,9 @@ export function MeasurementFunnel() {
               >
                 <span className="flex items-center gap-3">
                   <span className="font-mono text-[10px] text-ink-faint">{level.number}</span>
-                  <span className="font-display text-lg text-ink">{level.name}</span>
+                  <span className="font-display text-lg font-bold tracking-wide text-ink">
+                    {level.name}
+                  </span>
                 </span>
                 <span
                   className={`font-mono text-[11px] italic ${

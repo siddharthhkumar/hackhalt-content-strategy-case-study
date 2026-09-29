@@ -37,7 +37,9 @@ export function ContextSection() {
                   <span className="font-mono text-[11px] tracking-[0.12em] text-signal">
                     {String(i + 1).padStart(2, "0")}
                   </span>
-                  <h3 className="mt-2 font-display text-xl text-ink">{item.title}</h3>
+                  <h3 className="mt-2 font-display text-xl font-bold tracking-wide text-ink">
+                    {item.title}
+                  </h3>
 
                   <AnimatePresence initial={false}>
                     {isOpen && (
@@ -91,7 +93,9 @@ export function ContextSection() {
                       <span className="font-mono text-xs text-ink-faint">
                         {String(i + 1).padStart(2, "0")}
                       </span>
-                      <span className="font-display text-lg text-ink">{step}</span>
+                      <span className="font-display text-lg font-semibold tracking-wide text-ink">
+                        {step}
+                      </span>
                     </div>
                     {i !== arr.length - 1 ? (
                       <div className="ml-[1.15rem] h-5 w-px bg-line" />

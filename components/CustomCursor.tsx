@@ -7,7 +7,8 @@ export function CustomCursor() {
   const reduce = useReducedMotion();
   const [enabled, setEnabled] = useState(false);
   const dotRef = useRef<HTMLDivElement>(null);
-  const ringRef = useRef<HTMLDivElement>(null);
+  const groupRef = useRef<HTMLDivElement>(null);
+  const reticleRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (reduce) return;
@@ -19,8 +20,8 @@ export function CustomCursor() {
 
     let mouseX = window.innerWidth / 2;
     let mouseY = window.innerHeight / 2;
-    let ringX = mouseX;
-    let ringY = mouseY;
+    let groupX = mouseX;
+    let groupY = mouseY;
     let hovering = false;
     let rafId: number;
 
@@ -33,19 +34,19 @@ export function CustomCursor() {
     };
 
     const loop = () => {
-      ringX += (mouseX - ringX) * 0.18;
-      ringY += (mouseY - ringY) * 0.18;
+      groupX += (mouseX - groupX) * 0.2;
+      groupY += (mouseY - groupY) * 0.2;
 
       if (dotRef.current) {
         dotRef.current.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0) translate(-50%, -50%) scale(${
           hovering ? 0 : 1
         })`;
       }
-      if (ringRef.current) {
-        ringRef.current.style.transform = `translate3d(${ringX}px, ${ringY}px, 0) translate(-50%, -50%) scale(${
-          hovering ? 1.9 : 1
-        })`;
-        ringRef.current.style.opacity = hovering ? "0.55" : "1";
+      if (groupRef.current) {
+        groupRef.current.style.transform = `translate3d(${groupX}px, ${groupY}px, 0) translate(-50%, -50%)`;
+      }
+      if (reticleRef.current) {
+        reticleRef.current.dataset.hover = hovering ? "true" : "false";
       }
       rafId = requestAnimationFrame(loop);
     };
@@ -69,14 +70,20 @@ export function CustomCursor() {
         ref={dotRef}
         aria-hidden
         style={{ boxShadow: "0 0 8px 2px rgba(0,240,255,0.8)" }}
-        className="pointer-events-none fixed top-0 left-0 z-[999] h-1.5 w-1.5 rounded-full bg-signal"
+        className="pointer-events-none fixed top-0 left-0 z-[999] h-1 w-1 rounded-full bg-signal"
       />
       <div
-        ref={ringRef}
+        ref={groupRef}
         aria-hidden
-        style={{ boxShadow: "0 0 16px rgba(0,240,255,0.35)" }}
-        className="pointer-events-none fixed top-0 left-0 z-[999] h-8 w-8 rounded-full border border-signal transition-opacity duration-200 ease-out"
-      />
+        className="pointer-events-none fixed top-0 left-0 z-[999] h-9 w-9"
+      >
+        <div ref={reticleRef} className="cursor-reticle relative h-full w-full" data-hover="false">
+          <span className="absolute top-0 left-0 h-2.5 w-2.5 border-t-2 border-l-2 border-signal" />
+          <span className="absolute top-0 right-0 h-2.5 w-2.5 border-t-2 border-r-2 border-signal" />
+          <span className="absolute bottom-0 left-0 h-2.5 w-2.5 border-b-2 border-l-2 border-signal" />
+          <span className="absolute right-0 bottom-0 h-2.5 w-2.5 border-r-2 border-b-2 border-signal" />
+        </div>
+      </div>
     </>
   );
 }

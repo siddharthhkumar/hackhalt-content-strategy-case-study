@@ -41,7 +41,7 @@ export function Hero() {
             Content Security Audit — HackHalt Academy
           </motion.p>
 
-          <h1 className="mt-6 max-w-3xl font-display text-5xl leading-[1.15] font-light tracking-tight text-ink sm:text-6xl md:text-7xl">
+          <h1 className="mt-6 max-w-3xl font-display text-5xl leading-[1.15] font-black tracking-wide text-ink sm:text-6xl md:text-7xl">
             <SplitReveal
               baseDelay={0.3}
               lines={[

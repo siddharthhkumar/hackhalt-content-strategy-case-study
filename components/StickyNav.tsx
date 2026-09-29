@@ -32,7 +32,7 @@ export function StickyNav() {
       <div className="wrap flex h-16 items-center justify-between md:h-[4.5rem]">
         <a
           href="#top"
-          className="focus-ring flex items-baseline font-display text-lg tracking-tight text-ink"
+          className="focus-ring flex items-baseline font-display text-lg font-bold tracking-wide text-ink"
         >
           HackHalt
           <span className="ml-1.5 font-mono text-xs align-middle text-ink-faint">

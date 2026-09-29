@@ -40,7 +40,7 @@ export function SectionShell({
             </div>
           </Reveal>
 
-          <h2 className="mt-4 max-w-3xl font-display text-4xl leading-[1.06] font-light tracking-tight text-ink md:text-5xl lg:text-6xl">
+          <h2 className="mt-4 max-w-3xl font-display text-4xl leading-[1.06] font-bold tracking-wide text-ink md:text-5xl lg:text-6xl">
             <SplitReveal lines={[{ text: title }]} />
           </h2>
 

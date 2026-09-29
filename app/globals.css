@@ -75,6 +75,15 @@
   }
 }
 
+@keyframes cursor-spin {
+  from {
+    rotate: 0deg;
+  }
+  to {
+    rotate: 360deg;
+  }
+}
+
 @keyframes glitch-shift {
   0%,
   100% {
@@ -206,6 +215,25 @@ a {
 .cursor-none-fine,
 .cursor-none-fine * {
   cursor: none !important;
+}
+
+/* Cyberpunk targeting-reticle cursor */
+.cursor-reticle {
+  animation: cursor-spin 7s linear infinite;
+  transition:
+    scale 0.25s ease,
+    opacity 0.25s ease;
+  filter: drop-shadow(0 0 6px rgba(0, 240, 255, 0.7));
+}
+.cursor-reticle > span {
+  transition: border-color 0.25s ease;
+}
+.cursor-reticle[data-hover="true"] {
+  scale: 1.8;
+  filter: drop-shadow(0 0 10px rgba(255, 46, 166, 0.8));
+}
+.cursor-reticle[data-hover="true"] > span {
+  border-color: var(--color-accent2);
 }
 
 /* Typed tag — a stamped, monospace label used in place of rounded "pill" chips */

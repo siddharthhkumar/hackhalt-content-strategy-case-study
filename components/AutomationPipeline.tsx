@@ -60,7 +60,7 @@ export function AutomationPipeline() {
       </div>
 
       <Reveal delay={0.15}>
-        <p className="mt-14 max-w-2xl border-l-2 border-signal py-1 pl-6 font-display text-2xl leading-snug text-ink md:text-3xl">
+        <p className="mt-14 max-w-2xl border-l-2 border-signal py-1 pl-6 font-display text-2xl leading-snug font-bold tracking-wide text-ink md:text-3xl">
           A good automation system should reduce operational friction — not remove strategic
           judgement.
         </p>

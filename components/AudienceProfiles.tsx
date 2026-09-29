@@ -32,7 +32,9 @@ export function AudienceProfiles() {
                 >
                   {p.tag}
                 </span>
-                <span className="mt-1 block font-display text-2xl">{p.label}</span>
+                <span className="mt-1 block font-display text-2xl font-bold tracking-wide">
+                  {p.label}
+                </span>
               </button>
             );
           })}

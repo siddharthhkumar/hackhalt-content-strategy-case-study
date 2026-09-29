@@ -44,7 +44,9 @@ export function ContentPillars() {
                 >
                   {pillar.number}
                 </span>
-                <span className="mt-3 font-display text-2xl text-ink">{pillar.name}</span>
+                <span className="mt-3 font-display text-2xl font-bold tracking-wide text-ink">
+                  {pillar.name}
+                </span>
                 <span className="mt-2 text-sm text-ink-soft italic">{pillar.prompt}</span>
 
                 <AnimatePresence initial={false}>

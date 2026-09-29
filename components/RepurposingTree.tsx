@@ -10,7 +10,7 @@ export function RepurposingTree() {
         <p className="font-mono text-[10px] tracking-[0.14em] text-ink-faint uppercase">
           Content repurposing
         </p>
-        <p className="mt-2 max-w-xl font-display text-2xl leading-snug text-ink md:text-3xl">
+        <p className="mt-2 max-w-xl font-display text-2xl leading-snug font-bold tracking-wide text-ink md:text-3xl">
           One strong idea should not die as one post.
         </p>
       </Reveal>
@@ -20,7 +20,9 @@ export function RepurposingTree() {
           <p className="font-mono text-[10px] tracking-[0.12em] text-paper/55 uppercase">
             Core idea
           </p>
-          <p className="mt-2 font-display text-lg text-paper">{repurposingTree.core}</p>
+          <p className="mt-2 font-display text-lg font-bold tracking-wide text-paper">
+            {repurposingTree.core}
+          </p>
         </div>
       </Reveal>
 

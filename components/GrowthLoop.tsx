@@ -65,7 +65,7 @@ export function GrowthLoop() {
                   >
                     {stage.number}
                   </span>
-                  <span className="font-display text-[11px] leading-tight md:text-xs">
+                  <span className="font-display text-[11px] leading-tight font-semibold md:text-xs">
                     {stage.name}
                   </span>
                 </span>
@@ -92,7 +92,9 @@ export function GrowthLoop() {
             <p className="font-mono text-[10px] tracking-[0.14em] text-signal uppercase">
               Stage {current.number}
             </p>
-            <h3 className="mt-2 font-display text-3xl text-ink">{current.name}</h3>
+            <h3 className="mt-2 font-display text-3xl font-bold tracking-wide text-ink">
+              {current.name}
+            </h3>
             <p className="mt-3 font-mono text-sm text-ink-faint italic">{current.question}</p>
             <p className="mt-5 text-base leading-relaxed text-ink-soft">{current.detail}</p>
           </motion.div>

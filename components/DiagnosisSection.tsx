@@ -34,7 +34,7 @@ export function DiagnosisSection() {
             02a — Remediation
           </p>
         </Reveal>
-        <h3 className="mt-4 max-w-2xl font-display text-3xl leading-[1.1] font-light tracking-tight text-ink md:text-4xl">
+        <h3 className="mt-4 max-w-2xl font-display text-3xl leading-[1.1] font-bold tracking-wide text-ink md:text-4xl">
           <SplitReveal lines={[{ text: "The Fix: Company-First to Audience-First." }]} />
         </h3>
 
